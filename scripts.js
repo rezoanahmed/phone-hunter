@@ -8,8 +8,9 @@
 // test()
 
 // usind arrow, async and await
-const loadPhone = async () =>{
-    const res = await fetch('https://openapi.programming-hero.com/api/phones?search=iphone');
+const loadPhone = async (searchText) =>{
+    // const res = await fetch('https://openapi.programming-hero.com/api/phones?search=iphone');
+    const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await res.json();
     const phones = data.data;
     // console.log(phones);
@@ -30,6 +31,8 @@ const displayPhones = (phone) =>{
     // console.log(phone)
     // get the element
     let phonesContainer = document.getElementById("phone-container");
+    // clearing phone container after search
+    phonesContainer.innerText='';
     phone.forEach(phone => {
         // create element
         let phonesCard = document.createElement("div");
@@ -54,4 +57,11 @@ const displayPhones = (phone) =>{
     
 }
 
+// search handle
+const handleSearch = () => {
+    const searchField = document.getElementById('search');
+    const searchItem = searchField.value;
+    searchField.value = '';
+    loadPhone(searchItem);
+}
 loadPhone();
