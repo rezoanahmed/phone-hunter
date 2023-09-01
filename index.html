@@ -10,10 +10,14 @@
 </head>
 
 <body>
-    <header class="container mx-auto">
+    <header class="flex justify-center items-center">
       <div class="p-10">
-        <input id="search" type="text" placeholder="Search" class="input input-bordered w-full max-w-6xl" />
+        <input id="search" type="text" placeholder="Search" class="input input-bordered w-1/2 max-w-md" />
         <button onclick="handleSearch()" class="btn btn-ghost">Search</button>
+      </div>
+      <div class="p-5">
+        <input id="search2" type="text" placeholder="Search 2" class="input input-bordered w-1/2 max-w-md" />
+        <button onclick="handleSearch2()" class="btn btn-primary">Search</button>
       </div>
     </header>
     <main>
@@ -34,6 +38,11 @@
 
             </div>
         </section>
+        <!-- show all button -->
+        <div>
+          <button id="show-all" class="btn btn-accent hidden">Show All</button>
+
+        </div>
     </main>
     <footer></footer>
 

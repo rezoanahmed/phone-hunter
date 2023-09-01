@@ -33,9 +33,19 @@ const displayPhones = (phone) =>{
     let phonesContainer = document.getElementById("phone-container");
     // clearing phone container after search
     phonesContainer.innerText='';
+    // displaying first twelve phones
+    if(phone.length > 12){
+        const showAll = document.getElementById("show-all");
+        showAll.classList.remove("hidden");
+    } else{
+        showAll.classList.add("hidden");
+    }
+    phone = phone.slice(0,12);
+    
     phone.forEach(phone => {
         // create element
         let phonesCard = document.createElement("div");
+
         // add classes of daisy ui
         phonesCard.classList = "card w-full bg-base-100 shadow-xl";
         // set innerHTML with template string
@@ -64,4 +74,12 @@ const handleSearch = () => {
     searchField.value = '';
     loadPhone(searchItem);
 }
-loadPhone();
+// loadPhone();
+
+// another search bar
+const handleSearch2 = () =>{
+    const searchField = document.getElementById("search2");
+    const searchItem = searchField.value;
+    searchField.value = '';
+    loadPhone(searchItem);
+}
